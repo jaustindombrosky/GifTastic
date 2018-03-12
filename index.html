@@ -16,13 +16,38 @@
 
 </head>
 
-<body>
+<body img class="img-responsive" id="rocks" src "assets/images/background.jpg">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Nav Bar</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img class="img-responsive" id="giphyLogo" src="assets/images/giphy-black.png" alt="giphy">
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-right" id="tvShowForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="tvShowInput" placeholder="Add a TV show">
+                    </div>
+                    <button type="submit" id="addTvShow" class="btn btn-danger">Submit</button>
+                </form>
+            </div>
         </div>
     </nav>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 btn-group-vertical" role="group" id="buttonsBar">buttonsBar</div>
+            <div class="col-md-9">
+                <div class="row" id="gifsWindow"></div>
+            </div>
         </div>
+    </div>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
 </html>
