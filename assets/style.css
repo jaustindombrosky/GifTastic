@@ -1,0 +1,19 @@
+body {
+	background-image: <img src="assets/images/background.jpg">;
+	}
+
+img {
+	margin-bottom: 10px;
+}
+
+.rock{
+	display: inline-block;
+}
+
+#gifDisplay {
+	display: inline-block;
+}
+
+p{
+	color: rgb(124, 117, 117)
+}
