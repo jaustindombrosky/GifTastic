@@ -3,8 +3,9 @@ $(document).ready(function () {
     var gifDinosaurs = {
         typeDinosaurs: ["Tyrannosaurus Rex", "Triceratops", "Velociraptor", "Stegosaurus", "Allosaurus", "Spinosaurus", "Apatosaurus", "Brachiosaurus", "Archaeopteryx", "Dilophosaurus", "Iguanodon"],
         firstPick: "",
-        giphyApiUrl: "",
-        giphyApiKey: "",
+        userInput: "",
+        giphyApiUrl: "https://api.giphy.com/v1/gifs/search?",
+        giphyApiKey: "05h8rv9ZHwof2TTygMlRNr9Ace2Vag8k",
         renderButtons: function () {
             $("#buttonsBar").empty();
             for (var i = 0; i < this.typeDinosaurs.length; i++) {
@@ -18,9 +19,10 @@ $(document).ready(function () {
                 gifDinosaurs.firstPick = $(this).attr("data-name");
                 gifDinosaurs.displayGifs();
             });
-            displayGifs: function() {
-                var rockToShow = this.typeDinosaurs;
-                var queryURL = this.giphyApiUrl + "&q=" + tvShowToDisplay + "&limit=12&api_key=" + this.giphyApiKey;
+        },
+            displayGifs: function () {
+                var showDinosaur = this.typeDinosaurs;
+                var queryURL = this.giphyApiUrl + "&q=" + showDinosaur + "&limit=12&api_key=" + this.giphyApiKey;
                 $.ajax({ url: queryURL, method: "GET" }).done(function (response) {
                     $("gifsDisplay").empty();
                     for (var i = 0; i < response.data.length; i++) {
@@ -36,31 +38,33 @@ $(document).ready(function () {
                         image.attr("data-shot", showShot);
                         image.attr("data-moving", showMoving);
                         showDiv.append(image);
-                        $("#gifsDisplay".append(showDiv);
+                        $("#gifsDisplay".append(showDiv));
                     }
-                    $(".showImage").on("click", function () {
-                        if ($(this).attr("src") == $(this).attr("data-still")) {
-                            $(this).attr("src", $(this).attr("data-moving"));
-                        } else if ($(this).attr("src") == $(this).attr("data-moving")) {
-                            $(this).attr("src", $(this).attr("data-still"));
-                        }
-                    });
+
+                $(".showImage").on("click", function () {
+                    if ($(this).attr("src") == $(this).attr("data-still")) {
+                        $(this).attr("src", $(this).attr("data-moving"));
+                    } else if ($(this).attr("src") == $(this).attr("data-moving")) {
+                        $(this).attr("src", $(this).attr("data-still"));
+                    }
+
 
                 });
-            }
-        };
-        $("addDinosaur").on("click"), function() {
-            gifDinosaurs.userInput = $("#putDinosaurHere").val().trim();
-            if (gifDinosaurs.userInput != "") {
-                gifDinosaurs.typeDinosaurs.unshift(gifDinosaurs.userInput);
-                gifDinosaurs.renderButtons();
-
-            }
-
-            $("input#putDinosaurHere").val("");
-            return false;
-
         });
+$("addDinosaur").on("click"), function () {
+    gifDinosaurs.userInput = $("#putDinosaurHere").val().trim();
+    if (gifDinosaurs.userInput != "") {
+        gifDinosaurs.typeDinosaurs.unshift(gifDinosaurs.userInput);
+        gifDinosaurs.renderButtons();
+
+    }
+
+    $("input#putDinosaurHere").val("");
+    return false;
+
+};
 
 gifDinosaurs.renderButtons();
-});
+
+}}
+})
