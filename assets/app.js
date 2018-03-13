@@ -21,7 +21,7 @@ $(document).ready(function () {
             });
         },
             displayGifs: function () {
-                var showDinosaur = this.typeDinosaurs;
+                var showDinosaur = this.firstPick;
                 var queryURL = this.giphyApiUrl + "&q=" + showDinosaur + "&limit=12&api_key=" + this.giphyApiKey;
                 $.ajax({ url: queryURL, method: "GET" }).done(function (response) {
                     $("gifsDisplay").empty();
