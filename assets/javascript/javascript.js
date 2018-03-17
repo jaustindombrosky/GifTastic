@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var sports = ["Football", "Basketball", "Baseball", "Hockey", "Rugby", "Golf", "Fishing", "Lacrosse", "Skiing"];
+    var sports = ["Tyrannosaurus", "Triceratops", "Velociraptor", "Stegosaurus", "Allosaurus", "Spinosaurus", "Brachiosaurus", "Diplodocus", "Anklyosaurus"];
 
     function makeButtons() {
         $("#buttonDiv").empty();
@@ -28,7 +28,6 @@ $(document).ready(function () {
 
     function remove() {
         $("#remove").on("click", function () {
-            // delete (sports.pop());
             makeButtons();
         });
     }
