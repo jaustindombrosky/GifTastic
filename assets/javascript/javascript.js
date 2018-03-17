@@ -1,25 +1,25 @@
 $(document).ready(function () {
-    var sports = ["Tyrannosaurus", "Triceratops", "Velociraptor", "Stegosaurus", "Allosaurus", "Spinosaurus", "Brachiosaurus", "Diplodocus", "Anklyosaurus"];
+    var dinosaur = ["Tyrannosaurus", "Triceratops", "Velociraptor", "Stegosaurus", "Allosaurus", "Spinosaurus", "Brachiosaurus", "Diplodocus", "Anklyosaurus"];
 
     function makeButtons() {
         $("#buttonDiv").empty();
-        for (var i = 0; i < sports.length; i++) {
-            var sportsButton = $("<button>");
-            sportsButton.addClass("sport");
-            sportsButton.addClass("btn btn-primary btn-lg");
-            sportsButton.attr("data-name", sports[i]);
-            sportsButton.text(sports[i]);
-            $("#buttonDiv").append(sportsButton);
+        for (var i = 0; i < dinosaur.length; i++) {
+            var dinosaurButton = $("<button>");
+            dinosaurButton.addClass("dinosaur");
+            dinosaurButton.addClass("btn btn-primary btn-lg");
+            dinosaurButton.attr("data-name", dinosaur[i]);
+            dinosaurButton.text(dinosaur[i]);
+            $("#buttonDiv").append(dinosaurButton);
 
         }
     }
 
 
-    $("#addSport").on("click", function () {
+    $("#addDinosaur").on("click", function () {
         event.preventDefault();
-        var newSport = $("#input").val().trim();
-        console.log(newSport);
-        sports.push(newSport);
+        var newDinosaur = $("#input").val().trim();
+        console.log(newDinosaur);
+        dinosaur.push(newDinosaur);
         makeButtons();
         gifs();
 
@@ -38,12 +38,12 @@ $(document).ready(function () {
     remove();
 
     function gifs() {
-        $(".sport").on("click", function () {
-            var sport = $(this).attr("data-name");
-            console.log(sport);
+        $(".dinosaur").on("click", function () {
+            var dinosaur = $(this).attr("data-name");
+            console.log(dinosaur);
             getGif();
             function getGif() {
-                var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + sport + "&api_key=4rSvlLwWpKB05KtbbOtyVH1eI47V0UxD&limit=5";
+                var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + dinosaur + "&api_key=4rSvlLwWpKB05KtbbOtyVH1eI47V0UxD&limit=5";
 
                 $.ajax({
 
