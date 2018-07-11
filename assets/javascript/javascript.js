@@ -43,7 +43,7 @@ $(document).ready(function () {
             console.log(dinosaur);
             getGif();
             function getGif() {
-                var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + dinosaur + "&api_key=4rSvlLwWpKB05KtbbOtyVH1eI47V0UxD&limit=5";
+                var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + dinosaur + "&api_key=4rSvlLwWpKB05KtbbOtyVH1eI47V0UxD&limit=5";
 
                 $.ajax({
 
